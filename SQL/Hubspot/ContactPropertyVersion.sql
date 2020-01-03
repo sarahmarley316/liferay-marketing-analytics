@@ -1,4 +1,3 @@
-#Query for ContactPropertyVersion and Contact table 
 SELECT cpv.value as “URL Visited”
         ,if(cpv.timestamp<>'',from_unixtime(floor(cpv.timestamp/1000)),null) as  "CPV Timestamp"
         ,cpv.name as "CPV Name"
