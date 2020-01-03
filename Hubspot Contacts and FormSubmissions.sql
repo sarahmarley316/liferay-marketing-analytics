@@ -69,16 +69,16 @@ SELECT   FormSubmission.formId
         ,Contact.contactProperty_lead_status_detail__c as "HS (SF) Lead Status Detail"
         ,if(Contact.contactProperty_first_autoqual_formsubmission_date<>'',from_unixtime(floor(Contact.contactProperty_first_autoqual_formsubmission_date/1000)),null) AS "First Autoqualification FormSubmission Date" #indicates date that they would have become an automatic mql
         ,if(Contact.contactProperty_first_scoring_threshold_date<>'',from_unixtime(floor(Contact.contactProperty_first_scoring_threshold_date/1000)),null) AS "First Scoring Threshold Date" #indicates the first date they would have become a Scoring lead
-		,if(Contact.contactProperty_attempting_to_contact_date<>'',from_unixtime(floor(Contact.contactProperty_attempting_to_contact_date/1000)),null) AS "Attempting to Contact Date"
-		,if(Contact.contactProperty_attempting_to_qualify_date<>'',from_unixtime(floor(Contact.contactProperty_attempting_to_qualify_date/1000)),null) AS "Attempting to Qualify Date"
-		,if(Contact.contactProperty_discovery_call_date<>'',from_unixtime(floor(Contact.contactProperty_discovery_call_date/1000)),null) AS "Discovery Call Date"
-		,if(Contact.contactProperty_in_conversation_date<>'',from_unixtime(floor(Contact.contactProperty_in_conversation_date/1000)),null) AS "In Conversation Date"
-		,if(Contact.contactProperty_prospect_date<>'',from_unixtime(floor(Contact.contactProperty_prospect_date/1000)),null) AS "Prospect Date"
-		,if(Contact.contactProperty_suspect_date<>'',from_unixtime(floor(Contact.contactProperty_suspect_date/1000)),null) AS "Suspect Date"
-		,if(Contact.contactProperty_prospect_rejected_date<>'',from_unixtime(floor(Contact.contactProperty_prospect_rejected_date/1000)),null) AS "Prospect Rejected Date"
-		,if(Contact.contactProperty_no_contact_made_month_1_date<>'',from_unixtime(floor(Contact.contactProperty_no_contact_made_month_1_date/1000)),null) AS "No Contact Made - Month 1"
-		,if(Contact.contactProperty_no_contact_made_month_2_date<>'',from_unixtime(floor(Contact.contactProperty_no_contact_made_month_2_date/1000)),null) AS "No Contact Made - Month 2"
-		,if(Contact.contactProperty_no_contact_made_month_3_date<>'',from_unixtime(floor(Contact.contactProperty_no_contact_made_month_3_date/1000)),null) AS "No Contact Made - Month 3"
+	,if(Contact.contactProperty_attempting_to_contact_date<>'',from_unixtime(floor(Contact.contactProperty_attempting_to_contact_date/1000)),null) AS "Attempting to Contact Date"
+	,if(Contact.contactProperty_attempting_to_qualify_date<>'',from_unixtime(floor(Contact.contactProperty_attempting_to_qualify_date/1000)),null) AS "Attempting to Qualify Date"
+	,if(Contact.contactProperty_discovery_call_date<>'',from_unixtime(floor(Contact.contactProperty_discovery_call_date/1000)),null) AS "Discovery Call Date"
+	,if(Contact.contactProperty_in_conversation_date<>'',from_unixtime(floor(Contact.contactProperty_in_conversation_date/1000)),null) AS "In Conversation Date"
+	,if(Contact.contactProperty_prospect_date<>'',from_unixtime(floor(Contact.contactProperty_prospect_date/1000)),null) AS "Prospect Date"
+	,if(Contact.contactProperty_suspect_date<>'',from_unixtime(floor(Contact.contactProperty_suspect_date/1000)),null) AS "Suspect Date"
+	,if(Contact.contactProperty_prospect_rejected_date<>'',from_unixtime(floor(Contact.contactProperty_prospect_rejected_date/1000)),null) AS "Prospect Rejected Date"
+	,if(Contact.contactProperty_no_contact_made_month_1_date<>'',from_unixtime(floor(Contact.contactProperty_no_contact_made_month_1_date/1000)),null) AS "No Contact Made - Month 1"
+	,if(Contact.contactProperty_no_contact_made_month_2_date<>'',from_unixtime(floor(Contact.contactProperty_no_contact_made_month_2_date/1000)),null) AS "No Contact Made - Month 2"
+	,if(Contact.contactProperty_no_contact_made_month_3_date<>'',from_unixtime(floor(Contact.contactProperty_no_contact_made_month_3_date/1000)),null) AS "No Contact Made - Month 3"
 
 	# Funnel Stage Properties
         ,Contact.contactProperty_aqp_reason as "AQP Reason"
