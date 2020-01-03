@@ -1,4 +1,5 @@
-SELECT o.Account_Subscription_Year__c as "Account Subscription Year"
+SELECT 
+		o.Account_Subscription_Year__c as "Account Subscription Year"
 		,o.AccountId as "Opportunity Account Id"
 		,o.Amount__USD as "Opportunity Amount USD"
 		,o.Closed_Lost_Date__c as "Opportunity Closed Lost Date"
