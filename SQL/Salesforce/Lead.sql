@@ -1,0 +1,36 @@
+SELECT l.Company as "SFDC Company"
+		,l.ConvertedOpportunityId
+		,l.Converted_to_New_Opportunity__c as "Converted to New Opportunity"
+		,l.Country as "SFDC Country"
+		,l.Email as "SFDC Email"
+		,l.Existing_Customer__c as "Existing Customer"
+		,l.Existing_Opportunity__c as "Existing Opportunity"
+		,l.Id_ as "Lead ID"
+		,l.Industry as "SFDC Industry"
+		,l.Job_Role__c as "SFDC Job Role"
+		,l.Lead_Age_to_Convert__c as "Lead Age to Convert"
+        ,l.Lead_Age_Qualified_to_Convert__c as "Lead Age Qualified to Convert"
+		,l.Lead_Score__c as "SFDC Lead Score"
+		,l.Lead_Status_Detail__c as "Lead Status Detail"
+		,l.NumberOfEmployees as "Number of Employees"
+		,l.Qualification_Reason__c as "Qualification Reason"
+		,l.Qualification_Reason_Detail__c as "Qualification Reason Detail"
+		,l.Qualified_Date__c as "Qualified Date"
+		,l.Qualified_Lead_Type__c as "Qualified Lead Type"
+		,l.Region__c as "SFDC Region"
+		,l.Recent_Conversion__c as "SFDC Recent Conversion"
+        ,l.Recent_Interaction__c as "SFDC Recent Interaction"
+        ,l.Sales_Accepted_Lead_Date__c as "Sales Accepted Lead Date"
+		,l.Sales_Rejected_Date__c as "Sales Rejected Date"
+		,l.Status
+		,CONCAT("https:#na5.salesforce.com/",l.Id_) as "SFDC Lead URL"
+        ,CASE 
+			WHEN l.NA_Sales_Territory__c = "NorthEast" THEN "East"
+			WHEN l.NA_Sales_Territory__c ="MidWest" THEN "West"
+			WHEN l.NA_Sales_Territory__c = "CA Central" THEN "Central"
+			WHEN l.NA_Sales_Territory__c = "CA East" THEN "East"
+			WHEN l.NA_Sales_Territory__c = "CA West" THEN "West"
+		ELSE l.NA_Sales_Territory__c
+		END AS "SFDC NA Sales Territory"
+FROM Lead as l
+WHERE substring(l.Email, position("@" in l.Email)+1,length(l.Email)) <> 'liferay.com'
