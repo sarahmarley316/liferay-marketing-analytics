@@ -23,6 +23,15 @@ SELECT cm.ActualCost
 		,cm.StartDate as StartDate_campaign
 		,cm.Status as Status_campaign
 		,cm.Type_ as Type_campaign
-	,left(cm.Id_,15) as campaign_id_trimmed
+		,cpm.CampaignId as CampaignId_cpm
+		,cpm.ContactId as ContactId_cpm
+		,cpm.Id_ as Id_cpm
+		,cpm.LeadId as LeadId_cpm
+		,left(cm.Id_,15) as campaign_id_trimmed
 FROM Campaign as cm
-#JOIN on cm.campaign_id_trimmed to hubspot.Contact.recent_interaction_campaign
+LEFT JOIN CampaignMember as cpm
+on cm.Id_ = cpm.CampaignId
+# JOIN on cm.campaign_id_trimmed to hubspot.Contact.recent_interaction_campaign
+
+
+
