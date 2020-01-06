@@ -3,7 +3,6 @@
 ### Import requirements
 
 #### Import libraries
-"""
 
 # Pandas for structuring
 import pandas as pd
@@ -40,6 +39,7 @@ import matplotlib.colors as mcolors
 """#### Import dataset"""
 
 # Read CSV in
+# "ContactUsComments10-02-2019.csv" was the original dataset file name.
 contactuscomments = pd.read_csv('ContactUsComments10-02-2019.csv')
 contactuscomments_original = contactuscomments #creating this in case we need to refer back to the original text document.
 
@@ -51,10 +51,10 @@ contactuscomments_original['index'] = contactuscomments_original.index
 print(type(contactuscomments))
 contactuscomments.sample(3)
 
-"""### Pre-cleaning steps
+"""### Pre-cleaning steps"""
 
 #### Create custom stopwords list
-"""
+
 
 # Create a custom stopwords list based on domain knowledge and previous exports
 nltk_stopwords = stopwords.words('english')
@@ -63,7 +63,7 @@ custom_stopwords = frozenset(nltk_stopwords + ['liferay', 'Submitted by Krista C
                                                'krista','curt','best', 'regard','live','thank','you','curtis',
                                                'grace','cantino','life','ray'])
 
-"""#### Find words with 3 characters or less"""
+#### Find words with 3 characters or less
 
 # Create function to pull words with less than three characters. This returns all words per row with len < 3 words.
 def findabbreviations(text):
@@ -142,10 +142,10 @@ for i in counter.keys():
   if counter[i] > std_mean:
     print(i, counter[i])
 
-"""### Coreference Resolution
+""" ### Coreference Resolution """
 
 #### Install required programs
-"""
+
 
 # Make sure to install these first. Neuralcoref only works with very specific versions. It's picky.
 !pip install neuralcoref
@@ -190,10 +190,10 @@ resolved_coref = doc._.coref_resolved
 print ("New example text after coreference resolution:" )
 print(resolved_coref)
 
-"""It works!
+"""It works!"""
 
 #### Coreference for the dataframe time
-"""
+
 
 print(contactuscomments[1621:1622])
 a = []
@@ -268,10 +268,10 @@ word_tokens = word_tokenize(str(df_list).strip('[]'))
 
 # The str(contactuscomments).strip('[]') converts the list to a string & removes '[]' around each comment.
 
-"""### Bag of Words
+"""### Bag of Words"""
 
 #### Create Dictionary and Corpus - bow
-"""
+
 
 # Create Dictionary
 dictionary = Dictionary(df_list)
