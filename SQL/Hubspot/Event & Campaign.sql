@@ -1,4 +1,4 @@
-#Query for Emails
+# Query for Emails
 SELECT if(Event.created<>'',from_unixtime(floor(Event.created/1000)),null) as createddate_email
 		,Event.recipient
 		,Event.type
