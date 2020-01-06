@@ -1,0 +1,15 @@
+#Percentage of Rows Filled in Forms
+SELECT count(FormSubmission.value_job_role__c) / (count(FormSubmission.value_job_role__c)+ (count(case when FormSubmission.value_job_role__c is null then 1 end))) as "Job Role"
+   		,count(FormSubmission.value_jobtitle)/ (count(FormSubmission.value_jobtitle) + (count(case when FormSubmission.value_jobtitle is null then 1 end))) as "Job Title"
+   		,count(FormSubmission.value_industry)/ (count(FormSubmission.value_industry) + (count(case when FormSubmission.value_industry is null then 1 end))) as "Industry"
+   		,count(FormSubmission.value_solution_interest)/ (count(FormSubmission.value_solution_interest) + (count(case when FormSubmission.value_solution_interest is null then 1 end))) as "Solution Interest"
+   		,count(FormSubmission.value_email)/ (count(FormSubmission.value_email) + (count(case when FormSubmission.value_email is null then 1 end))) as "Email"
+   		,count(FormSubmission.value_country)/ (count(FormSubmission.value_country) + (count(case when FormSubmission.value_country is null then 1 end))) as "Country"
+   		,count(FormSubmission.value_company)/ (count(FormSubmission.value_company) + (count(case when FormSubmission.value_company is null then 1 end))) as "Company"
+   		,count(FormSubmission.value_phone)/ (count(FormSubmission.value_phone) + (count(case when FormSubmission.value_phone is null then 1 end))) as "Phone"
+   		,count(FormSubmission.value_department)/ (count(FormSubmission.value_department) + (count(case when FormSubmission.value_department is null then 1 end))) as "Department"
+   		,count(FormSubmission.value_persona_temporary)/ (count(FormSubmission.value_persona_temporary) + (count(case when FormSubmission.value_persona_temporary is null then 1 end))) as "Persona Temporary"
+   		,count(FormSubmission.value_numemployees)/ (count(FormSubmission.value_numemployees) + (count(case when FormSubmission.value_numemployees is null then 1 end))) as "Number of Employees"
+FROM FormSubmission 
+WHERE FormSubmission.value_country= "United States" 
+	OR FormSubmission.value_country = "Canada"
