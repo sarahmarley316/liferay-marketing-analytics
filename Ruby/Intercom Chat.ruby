@@ -2,7 +2,6 @@ require 'json'
 require 'intercom'
 require 'json'
 
-
 intercom = Intercom::Client.new(token: 'INSERT TOKEN HERE FROM INTERCOM WEBSITE -> Your Account -> Authentication')
 
 class ConvoParser
